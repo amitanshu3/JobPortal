@@ -157,6 +157,11 @@ app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 app.use("/api/v1/mentor", mentorRoute);
 
+app.get('/',(req,res)=>{
+  res.send("Api Is Working")
+})
+
+
 app.listen(PORT, () => {
     connectDB();
     console.log(`Server running at port ${PORT}`);
