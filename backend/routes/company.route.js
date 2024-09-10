@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route("/register").post(registerCompany);
 router.route("/get").get(getCompany);
-router.route("/get/:id").get(etCompanyById);
+router.route("/get/:id").get(getCompanyById);
 router.route("/update/:id").put(singleUpload,updateCompany);
 
 export default router;
