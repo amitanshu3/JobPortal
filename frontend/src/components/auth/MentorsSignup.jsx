@@ -5,7 +5,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { MENTOR_API_END_POINT } from '@/utils/constant'; // Update this if necessary
+import { MENTOR_API_END_POINT } from '@/utils/constant'; 
 import { toast } from 'sonner';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from '@/redux/authSlice';
@@ -17,14 +17,14 @@ const MentorSignup = () => {
         email: "",
         phoneNumber: "",
         password: "",
-        currentRole: "", // Moved here
+        currentRole: "",
         
         expertise: "",
         experienceYears: "",
         availability: "",
         hourlyRate: "",
-        targetDomain: "", // Added field for target domain
-        additionalInfo: "", // Added field for additional info
+        targetDomain: "", 
+        additionalInfo: "", 
         file: ""
     });
 
@@ -43,20 +43,19 @@ const MentorSignup = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        console.log(input)
-        const formData = new FormData(); // formdata object
+        const formData = new FormData();
         formData.append("fullname", input.fullname);
         formData.append("email", input.email);
         formData.append("phoneNumber", input.phoneNumber);
         formData.append("password", input.password);
-        formData.append("currentRole", input.currentRole); // Added field
+        formData.append("currentRole", input.currentRole); 
         
         formData.append("expertise", input.expertise);
         formData.append("experienceYears", input.experienceYears);
         formData.append("availability", input.availability);
         formData.append("hourlyRate", input.hourlyRate);
-        formData.append("targetDomain", input.targetDomain); // Added field
-        formData.append("additionalInfo", input.additionalInfo); // Added field
+        formData.append("targetDomain", input.targetDomain); 
+        formData.append("additionalInfo", input.additionalInfo); 
         if (input.file) {
             formData.append("profilePhoto", input.file);
         }
