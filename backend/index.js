@@ -28,13 +28,21 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: 'https://jobportal-vn4u.onrender.com/',
-    
-    credentials: true, 
-  };
-  
-  // Use the CORS middleware with the specified options
-  app.use(cors(corsOptions));
+  origin: (origin, callback) => {
+    const allowedOrigins = ['https://jobportal-vn4u.onrender.com'];
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+
 
 
 
