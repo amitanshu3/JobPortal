@@ -33,7 +33,7 @@ const CategoryCarousel = () => {
                         ))
                     }
                 </CarouselContent>
-                <CarouselPrevious className="absolute left-1 top-1/2 transform w-[50px] z-10 bg-slate-900  text-blue-500" />
+                <CarouselPrevious className="absolute left-1 top-1/2 transform  z-10 bg-slate-900  text-blue-500" />
                 <CarouselNext className="absolute right-0 top-1/2 transform  bg-slate-800  z-10 text-blue-500" />
             </Carousel>
         </div>
