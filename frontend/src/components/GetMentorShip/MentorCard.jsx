@@ -28,8 +28,8 @@ const MentorCard = ({ mentor }) => {
 
   return (
     <div
-      className="mx-auto bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-      style={{ width: "70%" }}
+      className="mx-auto bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 w-[85%] max-sm:w-[100%]"
+      
     >
       <div className="md:flex">
         <div className="md:w-1/3">
