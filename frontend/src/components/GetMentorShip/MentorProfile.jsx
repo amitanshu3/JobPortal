@@ -110,7 +110,7 @@ const MentorProfile = () => {
     return (
         <div>
             <MentorNavbar />
-            <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10">
+            <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-11">
                 {/* Background Header */}
                 <div className="h-40 bg-gradient-to-r from-blue-400 to-purple-500 relative">
                     <div className="flex justify-center ">
