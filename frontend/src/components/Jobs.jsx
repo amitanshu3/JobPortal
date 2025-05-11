@@ -5,24 +5,48 @@ import Job from './Job';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 
-// const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
+
 
 const Jobs = () => {
     const { allJobs, searchedQuery } = useSelector(store => store.job);
     const [filterJobs, setFilterJobs] = useState(allJobs);
-
+    
     useEffect(() => {
+        console.log(allJobs)
         if (searchedQuery) {
             const filteredJobs = allJobs.filter((job) => {
-                return job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-                    job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-                    job.location.toLowerCase().includes(searchedQuery.toLowerCase())
-            })
-            setFilterJobs(filteredJobs)
+                const query = searchedQuery.toLowerCase();
+                const jobSalary = parseFloat(job.salary);
+    
+                if (query.includes('k') || query.includes('lakh')) {
+                    if (query === '0-40k') {
+                        return jobSalary >= 0 && jobSalary <= 0.4;
+                    }
+                    if (query === '40k-5lakh') {
+                        return jobSalary >= 0.4 && jobSalary <= 5;
+                    }
+                    if (query === '5lakh to 10lakh') {
+                        return jobSalary >=5 && jobSalary <= 10;
+                    }
+                    if(query==='10lakh to 20lakh'){
+                        return jobSalary >=10 && jobSalary <=20;
+                    }
+                } else {
+                    
+                    return (
+                        job.title.toLowerCase().includes(query) ||
+                        job.description.toLowerCase().includes(query) ||
+                        job.location.toLowerCase().includes(query)
+                    );
+                }
+            });
+    
+            setFilterJobs(filteredJobs);
         } else {
-            setFilterJobs(allJobs)
+            setFilterJobs(allJobs);
         }
     }, [allJobs, searchedQuery]);
+    
 
     return (
         <div>
