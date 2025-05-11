@@ -4,8 +4,6 @@ import { Job } from "../models/job.model.js";
 export const applyJob = async (req, res) => {
     try {
         const userId = req.id;
-        console.log(req.user);
-        console.log("only req console",req);
         const jobId = req.params.id;
         if (!jobId) {
             return res.status(400).json({
