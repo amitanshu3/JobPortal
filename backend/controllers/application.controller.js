@@ -3,8 +3,8 @@ import { Job } from "../models/job.model.js";
 
 export const applyJob = async (req, res) => {
     try {
-        const userId = req.id;
-        const jobId = req.params.id;
+        const userId = req.body.userId;
+        const jobId = req.body.jobId;
         console.log(userId,jobId)
         if (!jobId) {
             return res.status(400).json({
