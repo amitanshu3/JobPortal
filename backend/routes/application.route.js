@@ -4,7 +4,7 @@ import { applyJob, getApplicants, getAppliedJobs, updateStatus } from "../contro
  
 const router = express.Router();
 
-router.route("/apply/:id").get( applyJob);
+router.route("/apply").post( applyJob);
 router.route("/get").get(getAppliedJobs);
 router.route("/:id/applicants").get(getApplicants);
 router.route("/status/:id/update").post(updateStatus);
