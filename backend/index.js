@@ -98,20 +98,20 @@ app.post("/send-email", async (req, res) => {
         secure: true,
         port: 465,
         auth: {
-            user: "codecraze37@gmail.com",
+            user: "amitanshubehura78@gmail.com",
             pass: process.env.GOOGLE_PASS_KEY,
         },
     });
 
     const studentEmailOptions = {
-        from: "codecraze37@gmail.com",
+        from: "amitanshubehura78@gmail.com",
         to: student.email,
         subject: "Payment Confirmation",
         text: `Hello ${student.name},\n\nThank you for your payment. Your transaction has been completed successfully. Our Mentor will contact you soon.\n\nBest regards,\nCodeCraze`
     };
 
     const mentorEmailOptions = {
-        from: "codecraze37@gmail.com",
+        from: "amitanshubehura78@gmail.com",
         to: mentor.email,
         subject: "New Student Payment",
         text: `Hello Mentor ${mentor.fullname},\n\nA new student has completed their payment. Here are their details:\n\nName: ${student.name}\nEmail: ${student.email}\nPhone: ${student.phone}\nCity: ${student.city}\nCollege: ${student.college}\nDomain: ${student.domain}\nLecture Time: ${student.lectureTime}\nSkills: ${student.skills}\n\nBest regards,\nCodeCraze`
