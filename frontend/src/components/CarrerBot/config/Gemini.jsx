@@ -16,7 +16,7 @@ import {
 //   const apiKey = process.env.VITE_APP_ID;
 //   const genAI = new GoogleGenerativeAI(apiKey);
 
-  const genAI = new GoogleGenerativeAI("AIzaSyDesfSVcxrmzkb0WRso8XERJCDKlzFYe28");
+  const genAI = new GoogleGenerativeAI("AIzaSyADJjLpQcvQBlqWIr7B_ipaJ97vf06gK-M");
   
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
