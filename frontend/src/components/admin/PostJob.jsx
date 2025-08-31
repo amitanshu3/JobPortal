@@ -29,6 +29,8 @@ const PostJob = () => {
     const navigate = useNavigate();
 
     const { companies } = useSelector(store => store.company);
+    const { user } = useSelector(store => store.auth);
+    const userId=user._id;
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value });
     };
@@ -42,7 +44,7 @@ const PostJob = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post(`${JOB_API_END_POINT}/post`, input,{
+            const res = await axios.post(`${JOB_API_END_POINT}/post`, {...input,userId},{
                 headers:{
                     'Content-Type':'application/json'
                 },

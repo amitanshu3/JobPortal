@@ -3,8 +3,7 @@ import { Job } from "../models/job.model.js";
 // admin post krega job
 export const postJob = async (req, res) => {
     try {
-        const { title, description, requirements, salary, location, jobType, experience, position, companyId } = req.body;
-        const userId = req.id;
+        const { title, description, requirements, salary, location, jobType, experience, position, companyId,userId } = req.body;
 
         if (!title || !description || !requirements || !salary || !location || !jobType || !experience || !position || !companyId) {
             return res.status(400).json({
@@ -81,8 +80,9 @@ export const getJobById = async (req, res) => {
 // admin kitne job create kra hai abhi tk
 export const getAdminJobs = async (req, res) => {
     try {
-        const adminId = req.id;
-        const jobs = await Job.find({ created_by: adminId }).populate({
+        const {userId} = req.query;
+        
+        const jobs = await Job.find({ created_by: userId }).populate({
             path:'company',
             createdAt:-1
         });

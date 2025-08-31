@@ -99,11 +99,7 @@ const Navbar = () => {
 
           {/* Right Side Actions */}
           <div className="flex flex-row justify-center  md:flex-row items-center gap-5 mb-5 md:mb-0 md:mt-0">
-            <Link to="/mentors">
-              <Button className="bg-[#4B5563] hover:bg-[#6B7280] text-white font-bold px-3 py-1 rounded">
-                Get Mentorship
-              </Button>
-            </Link>
+            
 
             {!user ? (
               <div className="flex items-center gap-2">

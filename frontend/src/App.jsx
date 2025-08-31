@@ -15,15 +15,8 @@ import PostJob from './components/admin/PostJob';
 import Applicants from './components/admin/Applicants';
 import ProtectedRoute from './components/admin/ProtectedRoute';
 import BotApp from './components/CarrerBot/components/BotApp';
-import MentorsList from './components/GetMentorShip/MentorsList';
-import MentorSignup from './components/auth/MentorsSignup';
-import MentorLogin from './components/auth/MentorLogin';
-import MentorProfile from './components/GetMentorShip/MentorProfile';
 import { ToastContainer } from 'react-toastify'; // Import ToastContainer
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
-import StudentForm from './components/GetMentorShip/StudentForm';
-import Success from './components/GetMentorShip/Success';
-import PaymentFailedPage from './components/GetMentorShip/PaymentFailed';
 import './App.css'
 
 const appRouter = createBrowserRouter([
@@ -59,35 +52,7 @@ const appRouter = createBrowserRouter([
     path: "/profile",
     element: <Profile />
   },
-  {
-    path: '/mentorssignup',
-    element: <MentorSignup />
-  },
-  {
-    path: '/mentorslogin',
-    element: <MentorLogin />
-  },
-  {
-    path: '/mentorprofile',
-    element: <MentorProfile />
-  },
-  {
-    path: "/mentors",
-    element: <ProtectedRoute><MentorsList /></ProtectedRoute>
-  },
  
- {
-   path:'/studentform',
-   element:<StudentForm />
- },
- {
-  path:'/success',
-  element:<Success />
- },
- {
-  path:'/failed',
- element:<PaymentFailedPage />
- },
   // admin routes
   {
     path: "/admin/companies",

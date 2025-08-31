@@ -2,15 +2,18 @@ import { setCompanies} from '@/redux/companySlice'
 import { COMPANY_API_END_POINT} from '@/utils/constant'
 import axios from 'axios'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const useGetAllCompanies = () => {
     const dispatch = useDispatch();
+     const { user } = useSelector(store => store.auth);
+     const userId=user._id;
+     console.log(userId)
     useEffect(()=>{
         const fetchCompanies = async () => {
             try {
-                const res = await axios.get(`${COMPANY_API_END_POINT}/get`,{withCredentials:true});
-                console.log('called');
+                const res = await axios.get(`${COMPANY_API_END_POINT}/get`, {params: { userId },withCredentials: true,});
+
                 if(res.data.success){
                     dispatch(setCompanies(res.data.companies));
                 }

@@ -113,9 +113,6 @@ const Login = () => {
                         loading ? <Button className="w-full my-4"> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait </Button> : <Button type="submit" className="w-full my-4">Login</Button>
                     }
                     <span className='text-sm'>Don't have an account? <Link to="/signup" className='text-blue-600'>Signup</Link></span>
-                    <div className='mt-4'>
-                        <span className='text-sm'>Want to login as a mentor? <Link to="/mentorslogin" className='text-blue-600'>Click here</Link></span>
-                    </div>
                 </form>
             </div>
         </div>
